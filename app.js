@@ -8,7 +8,8 @@ const router = require("./router/router");
 const corsmiddleware = require("./middlewares/cors");
 const { handleError } = require("./utils/handleErrors");
 const chalk = require("chalk");
-
+require("dotenv").config();
+const PORT = process.env.PORT || 8181
 const app = express();
 app.use(corsmiddleware);
 app.use(express.json());
@@ -43,7 +44,7 @@ app.get("/", async (req, res) => {
 });
 
 
-app.listen(8182, () => {
+app.listen(PORT, () => {
     console.log(chalk.yellow("server is listening to port 8182"));
     connectToDb();
 });
