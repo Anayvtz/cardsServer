@@ -3,6 +3,8 @@ require("dotenv").config();
 const connectionStringForAtlas = process.env.ATLAS_CONNECTION_STRING;
 const connectToAtlaslDb = async () => {
     try {
+
+
         await mongoose.connect(connectionStringForAtlas);
         console.log("Connected to MongoDB on atalas");
     } catch (error) {
